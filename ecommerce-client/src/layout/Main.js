@@ -5,7 +5,9 @@ const Main = () => {
   return (
     <div>
       <Navbar />
-      {/* <footer>Footer</footer> */}
+      {/* <footer>
+        <h2>Hello Aman</h2>
+      </footer> */}
     </div>
   );
 };

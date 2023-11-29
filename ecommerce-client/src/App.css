@@ -1,2 +1,22 @@
 /* Imported Google-Fonts and added in tailwind.config.js as a primary */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap");
+
+.section-container {
+  @apply max-w-screen-2xl container mx-auto xl:px-24 px-4;
+}
+
+@media screen and (max-width: 480px) {
+  .hiding {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .edited-div {
+    flex-direction: column-reverse;
+  }
+}
+
+.right {
+  clip-path: polygon(58% 1%, 99% 1%, 100% 99%, 0 100%, 0 52%);
+}

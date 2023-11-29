@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../Images/logo.jpeg";
 import { FiPhoneCall } from "react-icons/fi";
 
 const Navbar = () => {
+  const [isSteaky, setisSticky] = useState(false);
+
+  // hanle scroll functions
+  useState(() => {
+    const hanldelScroll = () => {
+      const offSet = window.scrollY;
+      if (offSet > 0) {
+        setisSticky(true);
+      } else {
+        setisSticky(false);
+      }
+    };
+    window.addEventListener("scroll", hanldelScroll);
+    return () => {
+      window.addEventListener("scroll", hanldelScroll);
+    };
+  }, []);
+
   return (
-    <header className="max-w-screen-2xl container mx-auto bg-primaryBG">
+    <header className="max-w-screen-2xl container mx-auto bg-primaryBG fixed top-0 left-0 transition-all duration-300 ease-in-out">
       <div className="navbar xl:px-24">
         <div className="navbar-start">
           <div className="dropdown">
@@ -31,7 +49,7 @@ const Navbar = () => {
               <li>
                 <details>
                   <summary>Menu</summary>
-                  <ul className="p-2">
+                  <ul className="p-2 ">
                     <li>
                       <a>All</a>
                     </li>
