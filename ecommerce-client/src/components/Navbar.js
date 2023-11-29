@@ -3,27 +3,29 @@ import logo from "../Images/logo.jpeg";
 import { FiPhoneCall } from "react-icons/fi";
 
 const Navbar = () => {
-  const [isSteaky, setisSticky] = useState(false);
+  const [isSticky, setSticky] = useState(false);
 
-  // hanle scroll functions
-  useState(() => {
-    const hanldelScroll = () => {
-      const offSet = window.scrollY;
-      if (offSet > 0) {
-        setisSticky(true);
-      } else {
-        setisSticky(false);
-      }
-    };
-    window.addEventListener("scroll", hanldelScroll);
+  const handleScroll = () => {
+    setSticky(window.scrollY > 0);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      window.addEventListener("scroll", hanldelScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <header className="max-w-screen-2xl container mx-auto bg-primaryBG fixed top-0 left-0 transition-all duration-300 ease-in-out">
-      <div className="navbar xl:px-24">
+    <header className="max-w-screen-2xl container mx-auto bg-primaryBG fixed top-0  left-0 right-0 transition-all duration-300 ease-in-out">
+      <div
+        className={`navbar xl:px-24 ${
+          isSticky
+            ? " shadow-md bg-base-100 transition-all duration-300 ease-in-out"
+            : ""
+        }`}
+      >
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

@@ -5,7 +5,7 @@ import rating2 from "../Images/rating-2.jpeg";
 
 const Banner = () => {
   return (
-    <div className="section-container bg-gradient-to-r from-[#FAFAFA] fron-0% to-[#FCFCFC] to-100%  ">
+    <div className="section-container bg-gradient-to-r from-[#FAFAFA] fron-0% to-[#FCFCFC] to-100% -z-10 ">
       <div className="edited-div py-24 flex flex-col sm:flex-col-reverse md:flex-row-reverse lg:flex-row  justify-center items-center">
         {/* left that is text */}
         <div className="md:w-1/2 space-y-7 px-4">

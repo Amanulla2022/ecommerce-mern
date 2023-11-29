@@ -5,6 +5,14 @@
   @apply max-w-screen-2xl container mx-auto xl:px-24 px-4;
 }
 
+.common-subtitle {
+  @apply text-red uppercase tracking-wide font-medium text-lg;
+}
+
+.common-title {
+  @apply text-4xl md:text-5xl font-bold my-2 md:leading-snug leading-snug;
+}
+
 @media screen and (max-width: 480px) {
   .hiding {
     display: none;
@@ -19,4 +27,9 @@
 
 .right {
   clip-path: polygon(58% 1%, 99% 1%, 100% 99%, 0 100%, 0 52%);
+}
+
+/* not worked so added marked z-index as important */
+header {
+  z-index: 10001 !important ;
 }

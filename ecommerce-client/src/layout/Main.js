@@ -5,9 +5,6 @@ const Main = () => {
   return (
     <div>
       <Navbar />
-      {/* <footer>
-        <h2>Hello Aman</h2>
-      </footer> */}
     </div>
   );
 };
