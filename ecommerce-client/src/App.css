@@ -17,11 +17,19 @@
   .hiding {
     display: none;
   }
+  .my1 {
+    padding-left: 2.5rem;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .edited-div {
     flex-direction: column-reverse;
+  }
+
+  .card-image {
+    width: 8rem;
+    height: 8rem;
   }
 }
 

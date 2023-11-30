@@ -15,9 +15,37 @@ const SpecialDishes = () => {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        const specials = data.filter((item) => item.category === "popular");
-        // console.log(specials);
-        setRecipes(specials);
+        // if (data && data.pizza && Array.isArray(data.pizza)) {
+        //   const spicyPizzaItems = data.pizza.filter(
+        //     (item) => item.spicy === true
+        //   );
+        //   // console.log(spicyPizzaItems);
+        //   setRecipes(spicyPizzaItems);
+        // } else {
+        //   console.error("Data is not as expected.");
+        // }
+
+        if (
+          data &&
+          data.pasta &&
+          Array.isArray(data.pasta) &&
+          data.pizza &&
+          Array.isArray(data.pizza)
+        ) {
+          const spicyPizzaItems = data.pizza.filter(
+            (item) => item.spicy === true
+          );
+          const spicyPastaItems = data.pasta.filter(
+            (item) => item.spicy === false
+          );
+
+          const allSpicyItems = [...spicyPizzaItems, ...spicyPastaItems];
+
+          console.log(allSpicyItems);
+          setRecipes(allSpicyItems);
+        } else {
+          console.error("Data is not as expected.");
+        }
       });
   }, []);
 
@@ -64,7 +92,7 @@ const SpecialDishes = () => {
           Standout Dishes From Our Menu
         </h2>
       </div>
-      <Slider {...settings}>
+      <Slider {...settings} className="my1">
         {recipes.map((item, i) => (
           <Cards key={i} item={item} />
         ))}
